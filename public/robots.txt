@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://benji.renocrypt.com/sitemap.xml

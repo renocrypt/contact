@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="34 46 444 444" role="img" aria-labelledby="pt-title" class="portrait">
+  <title id="pt-title">Anime-style portrait of Benji Peng</title>
+  <defs>
+    <clipPath id="pt-crop"><circle cx="256" cy="268" r="222"/></clipPath>
+    <clipPath id="pt-face"><path d="M172 170C170 228 186 268 214 288C230 299 244 304 256 304C268 304 282 299 298 288C326 268 342 228 340 170C320 120 192 120 172 170Z"/></clipPath>
+    <clipPath id="pt-eye-l"><path d="M190 216C196 200 226 194 240 210C242 230 232 246 214 247C198 246 189 233 190 216Z"/></clipPath>
+    <clipPath id="pt-eye-r"><path d="M322 216C316 200 286 194 272 210C270 230 280 246 298 247C314 246 323 233 322 216Z"/></clipPath>
+    <pattern id="pt-jacquard" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <circle class="pt-dot" cx="3" cy="3" r="1.1"/>
+    </pattern>
+    <style>
+      .pt-hub{fill:var(--pt-hub,#E4E0F2)}
+      .pt-skin{fill:var(--pt-skin,#FFF9F7)}
+      .pt-shade{fill:var(--pt-shade,#ECE3F2)}
+      .pt-blush{fill:var(--pt-blush,#F4B6C2);opacity:.45}
+      .pt-hair{fill:var(--pt-hair,#2B2560)}
+      .pt-hair-hi{fill:var(--pt-hair-hi,#6D67B5)}
+      .pt-cloth{fill:var(--pt-cloth,#2B2560)}
+      .pt-tone{fill:url(#pt-jacquard)}
+      .pt-dot{fill:var(--pt-tone,#463F86)}
+      .pt-lapel{fill:var(--pt-lapel,#3A3478)}
+      .pt-shirt{fill:var(--pt-shirt,#FFFFFF)}
+      .pt-white{fill:var(--pt-white,#FFFFFF)}
+      .pt-iris{fill:var(--pt-iris,#6C78D8)}
+      .pt-iris-lite{fill:var(--pt-iris-lite,#B9C1F2)}
+      .pt-dark{fill:var(--pt-dark,#1A1640)}
+      .pt-mouth{fill:var(--pt-mouth,#5E3A6E)}
+      .pt-tongue{fill:var(--pt-tongue,#F4B6C2)}
+      .pt-accent{fill:var(--pt-accent,#F0A3B5)}
+      .pt-ln{fill:none;stroke:var(--pt-line,#26215C);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+      .pt-cut{fill:none;stroke:var(--pt-cut,#F2F0F7);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+      .pt-strand{fill:none;stroke:var(--pt-hair-hi,#6D67B5);stroke-width:1.3;stroke-linecap:round}
+      .pt-w1{stroke-width:1.3}
+      .pt-w15{stroke-width:1.7}
+      .pt-w25{stroke-width:2.5}
+      .pt-w4{stroke-width:4.4}
+    </style>
+  </defs>
+
+  <g clip-path="url(#pt-crop)">
+    <circle class="pt-hub" cx="256" cy="268" r="222"/>
+
+    <g class="pt-fills">
+      <g transform="translate(0 -16)">
+      <path class="pt-cloth" d="M96 512C100 452 124 396 176 372C204 360 226 348 238 328L274 326C288 348 308 360 336 372C388 396 412 452 416 512Z"/>
+      <path class="pt-tone" d="M96 512C100 452 124 396 176 372C204 360 226 348 238 328L274 326C288 348 308 360 336 372C388 396 412 452 416 512Z"/>
+      <path class="pt-shirt" d="M224 332L288 330L260 474L252 474Z"/>
+      <path class="pt-lapel" d="M224 332L204 368L216 378L200 396L252 474Z"/>
+      <path class="pt-lapel" d="M288 330L308 366L296 376L312 394L260 474Z"/>
+      <path class="pt-shirt" d="M240 330L222 334L230 360L254 346Z"/>
+      <path class="pt-shirt" d="M272 328L290 330L284 358L258 346Z"/>
+      <circle class="pt-accent" cx="212" cy="392" r="6"/>
+      <circle class="pt-accent" cx="220" cy="408" r="4.5"/>
+      <circle class="pt-accent" cx="298" cy="394" r="6"/>
+      <circle class="pt-dark" cx="296" cy="446" r="9"/>
+      <circle class="pt-dark" cx="314" cy="449" r="9"/>
+      </g>
+      <path class="pt-skin" d="M242 290L241 318C250 322 262 322 271 318L270 290Z"/>
+      <path class="pt-shade" d="M242 300C250 310 262 310 270 300L270 312C262 316 250 316 242 312Z"/>
+      <path class="pt-skin" d="M176 206C162 200 156 216 162 230C166 240 174 244 182 240Z"/>
+      <path class="pt-skin" d="M336 206C350 200 356 216 350 230C346 240 338 244 330 240Z"/>
+      <path class="pt-skin" d="M172 170C170 228 186 268 214 288C230 299 244 304 256 304C268 304 282 299 298 288C326 268 342 228 340 170C320 120 192 120 172 170Z"/>
+      <g clip-path="url(#pt-face)">
+        <path class="pt-shade" transform="translate(0 8)" d="M174 216C164 196 156 172 158 148L146 136C154 132 160 128 164 124C166 106 178 92 192 84L182 74C194 74 202 76 208 78L218 63C226 68 236 70 246 68C262 64 280 64 292 70L312 63C310 72 314 80 322 88C338 96 350 112 354 130L362 140C358 146 356 152 356 160C356 182 348 200 338 216C336 206 334 196 332 186C332 180 331 176 330 172C328 180 324 188 318 192C316 184 313 174 310 166C306 176 298 186 290 190C288 180 286 170 282 162C280 176 272 190 262 200C260 186 256 172 252 160C248 172 242 182 234 188C232 180 229 172 226 164C222 176 214 186 206 192C204 184 201 176 198 168C194 180 188 192 182 200C180 206 177 211 174 216Z"/>
+      </g>
+      <ellipse class="pt-blush" cx="192" cy="258" rx="14" ry="6.5"/>
+      <ellipse class="pt-blush" cx="320" cy="258" rx="14" ry="6.5"/>
+      <path class="pt-white" d="M190 216C196 200 226 194 240 210C242 230 232 246 214 247C198 246 189 233 190 216Z"/>
+      <path class="pt-white" d="M322 216C316 200 286 194 272 210C270 230 280 246 298 247C314 246 323 233 322 216Z"/>
+      <g clip-path="url(#pt-eye-l)">
+        <ellipse class="pt-iris" cx="217" cy="225" rx="17" ry="21"/>
+        <ellipse class="pt-dark" cx="217" cy="212" rx="17" ry="9"/>
+        <path class="pt-iris-lite" d="M204 236C210 244 224 244 230 236C228 242 222 246 217 246C212 246 206 242 204 236Z"/>
+        <ellipse class="pt-dark" cx="217" cy="227" rx="7.5" ry="9.5"/>
+      </g>
+      <g clip-path="url(#pt-eye-r)">
+        <ellipse class="pt-iris" cx="295" cy="225" rx="17" ry="21"/>
+        <ellipse class="pt-dark" cx="295" cy="212" rx="17" ry="9"/>
+        <path class="pt-iris-lite" d="M282 236C288 244 302 244 308 236C306 242 300 246 295 246C290 246 284 242 282 236Z"/>
+        <ellipse class="pt-dark" cx="295" cy="227" rx="7.5" ry="9.5"/>
+      </g>
+      <circle class="pt-white" cx="209" cy="215" r="6"/>
+      <circle class="pt-white" cx="225" cy="234" r="2.6"/>
+      <circle class="pt-white" cx="287" cy="215" r="6"/>
+      <circle class="pt-white" cx="303" cy="234" r="2.6"/>
+      <path class="pt-mouth" d="M244 270C250 273 262 273 268 270C266 281 260 285 256 285C252 285 246 281 244 270Z"/>
+      <path class="pt-tongue" d="M249 280C252 277 260 277 263 280C261 284 251 284 249 280Z"/>
+      <path class="pt-hair" d="M174 216C164 196 156 172 158 148L146 136C154 132 160 128 164 124C166 106 178 92 192 84L182 74C194 74 202 76 208 78L218 63C226 68 236 70 246 68C262 64 280 64 292 70L312 63C310 72 314 80 322 88C338 96 350 112 354 130L362 140C358 146 356 152 356 160C356 182 348 200 338 216C336 206 334 196 332 186C332 180 331 176 330 172C328 180 324 188 318 192C316 184 313 174 310 166C306 176 298 186 290 190C288 180 286 170 282 162C280 176 272 190 262 200C260 186 256 172 252 160C248 172 242 182 234 188C232 180 229 172 226 164C222 176 214 186 206 192C204 184 201 176 198 168C194 180 188 192 182 200C180 206 177 211 174 216Z"/>
+      <path class="pt-hair" d="M262 78C256 64 262 52 278 50C270 58 268 66 272 78Z"/>
+      <path class="pt-hair-hi" d="M196 114C220 102 250 98 280 100C300 102 318 108 332 118C324 118 314 114 304 112L300 119L292 110C270 106 246 106 226 112L220 120L214 112C208 114 202 116 196 114Z"/>
+    </g>
+
+    <g class="pt-lines">
+      <g transform="translate(0 -16)">
+      <path class="pt-ln pt-w25" d="M96 512C100 452 124 396 176 372C204 360 226 348 238 328"/>
+      <path class="pt-ln pt-w25" d="M274 326C288 348 308 360 336 372C388 396 412 452 416 512"/>
+      <path class="pt-ln pt-w15" d="M224 332L204 368L216 378L200 396L252 474M288 330L308 366L296 376L312 394L260 474"/>
+      <path class="pt-ln pt-w15" d="M240 330L222 334L230 360L254 346M272 328L290 330L284 358L258 346"/>
+      <path class="pt-ln pt-w15" d="M243 321L242 334M269 321L270 334"/>
+      <path class="pt-ln pt-w1" d="M212 392m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0M220 408m-4.5 0a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0M298 394m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/>
+      <path class="pt-cut pt-w1" d="M287 446a9 9 0 1 0 18 0a9 9 0 1 0 -18 0M305 449a9 9 0 1 0 18 0a9 9 0 1 0 -18 0M321 444L330 424M291 442C292 439 295 437 298 437"/>
+      </g>
+      <path class="pt-ln pt-w15" d="M176 206C162 200 156 216 162 230C166 239 172 242 177 241M336 206C350 200 356 216 350 230C346 239 340 242 335 241"/>
+      <path class="pt-ln pt-w25" d="M176 228C182 258 196 278 214 288C230 299 244 304 256 304C268 304 282 299 298 288C316 278 330 258 336 228"/>
+      <path class="pt-ln pt-w25" d="M174 216C164 196 156 172 158 148L146 136C154 132 160 128 164 124C166 106 178 92 192 84L182 74C194 74 202 76 208 78L218 63C226 68 236 70 246 68C262 64 280 64 292 70L312 63C310 72 314 80 322 88C338 96 350 112 354 130L362 140C358 146 356 152 356 160C356 182 348 200 338 216"/>
+      <path class="pt-ln pt-w15" d="M338 216C336 206 334 196 332 186C332 180 331 176 330 172C328 180 324 188 318 192C316 184 313 174 310 166C306 176 298 186 290 190C288 180 286 170 282 162C280 176 272 190 262 200C260 186 256 172 252 160C248 172 242 182 234 188C232 180 229 172 226 164C222 176 214 186 206 192C204 184 201 176 198 168C194 180 188 192 182 200C180 206 177 211 174 216"/>
+      <path class="pt-ln pt-w15" d="M262 78C256 64 262 52 278 50C270 58 268 66 272 78"/>
+      <path class="pt-strand" d="M282 162C280 150 276 140 270 132M252 160C250 148 246 140 240 134M226 164C222 152 216 144 210 140M310 166C308 154 306 146 300 138"/>
+      <path class="pt-ln pt-w4" d="M188 216C194 198 224 190 242 206M324 216C318 198 288 190 270 206"/>
+      <path class="pt-ln pt-w15" d="M189 213L183 208M323 213L329 208"/>
+      <path class="pt-ln pt-w1" d="M206 249C212 250 220 250 226 248M286 248C292 250 300 250 306 249"/>
+      <path class="pt-ln pt-w15" d="M257 252L255 256"/>
+      <path class="pt-ln" d="M242 269C250 273 262 273 270 269"/>
+    </g>
+  </g>
+  <circle class="pt-ln pt-w15" cx="256" cy="268" r="221"/>
+</svg>

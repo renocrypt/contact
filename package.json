@@ -1,0 +1,21 @@
+{
+  "name": "contact",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/fetch-fonts.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/fetch-fonts.mjs",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "animejs": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2"
+  }
+}

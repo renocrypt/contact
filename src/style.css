@@ -1,0 +1,630 @@
+/* Cipher: the card is enciphered; each ring of the wheel sets one key letter. */
+
+/* Gambarino (ITF FFL) is fetched at build time; see scripts/fetch-fonts.mjs. */
+@font-face {
+  font-family: "Gambarino";
+  src: url("/fonts/gambarino-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Compagnon (Velvetyne, OFL), subset to Latin. Every letter is 600 units wide in
+   these three styles, which keeps the per-letter cipher overlay aligned. */
+@font-face {
+  font-family: "Compagnon";
+  src: url("/fonts/compagnon-light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Compagnon";
+  src: url("/fonts/compagnon-roman.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Compagnon";
+  src: url("/fonts/compagnon-light-italic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Registered so main.ts reads the wheel geometry back as resolved pixels. */
+@property --wx {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+@property --wy {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+@property --wr {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+/* Day: violet spirit-duplicator ink on lilac paper, the same sheet the UV lamp reveals at night. */
+:root {
+  color-scheme: light;
+  --paper: #f2f0f7;
+  --ink: #26215c;
+  --ink-soft: #5e5a92;
+  --cipher: #918bcf;
+  --rule: #dcd8ec;
+  --glow: transparent;
+
+  --pt-hub: #e4e0f2;
+  --pt-skin: #fff9f7;
+  --pt-shade: #ece3f2;
+  --pt-blush: #f4b6c2;
+  --pt-hair: #2b2560;
+  --pt-hair-hi: #6d67b5;
+  --pt-cloth: #2b2560;
+  --pt-tone: #463f86;
+  --pt-lapel: #3a3478;
+  --pt-shirt: #ffffff;
+  --pt-white: #ffffff;
+  --pt-iris: #6c78d8;
+  --pt-iris-lite: #b9c1f2;
+  --pt-dark: #1a1640;
+  --pt-mouth: #5e3a6e;
+  --pt-tongue: #f4b6c2;
+  --pt-accent: #f0a3b5;
+  --pt-line: #26215c;
+  --pt-cut: #f2f0f7;
+}
+
+/* Night: a UV lamp over invisible ink. */
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --paper: #150c2a;
+  --ink: #dce6ff;
+  --ink-soft: #a7b4f0;
+  --cipher: #8a6ce6;
+  --rule: #31245a;
+  --glow: rgba(150, 180, 255, 0.55);
+
+  --pt-hub: #1e1340;
+  --pt-skin: #2a1f52;
+  --pt-shade: #20163f;
+  --pt-blush: #b07cff;
+  --pt-hair: #0e0820;
+  --pt-hair-hi: #4b3c9e;
+  --pt-cloth: #0b0619;
+  --pt-tone: #22184a;
+  --pt-lapel: #160e33;
+  --pt-shirt: #3a2e70;
+  --pt-white: #e8eeff;
+  --pt-iris: #6f86ff;
+  --pt-iris-lite: #a9b6f2;
+  --pt-dark: #07040f;
+  --pt-mouth: #0b0619;
+  --pt-tongue: #8a6ce6;
+  --pt-accent: #b07cff;
+  --pt-line: #cfe0ff;
+  --pt-cut: #9db4ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Compagnon", ui-monospace, "SF Mono", Menlo, monospace;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Stage and wheel geometry. Landscape: wheel on the right, window facing the text. */
+
+.stage {
+  --wx: 76vw;
+  --wy: 50svh;
+  --wr: min(45svh, 36vw);
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  overflow: clip;
+}
+
+.motion .track {
+  height: 320svh;
+}
+
+.motion .stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+}
+
+.wheel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hub {
+  position: absolute;
+  left: calc(var(--wx) - var(--wr) * 0.55);
+  top: calc(var(--wy) - var(--wr) * 0.55);
+  width: calc(var(--wr) * 1.1);
+  aspect-ratio: 1;
+  margin: 0;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: calc(var(--wx) - var(--wr));
+  padding: 2rem 3vw 2rem 7vw;
+  container-type: inline-size;
+}
+
+.name {
+  position: relative;
+  margin: 0;
+  font-family: "Gambarino", "Iowan Old Style", Georgia, serif;
+  font-size: min(7rem, 100cqi / 4.75, 11svh);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.012em;
+}
+
+.role {
+  margin: 1.1rem 0 0;
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
+  font-weight: 300;
+  color: var(--ink-soft);
+}
+
+/* Links as a ledger: the group name sits in the margin, one rule per group,
+   and every row reads icon, who, where. */
+.channels {
+  max-width: 38rem;
+  margin-top: clamp(1.25rem, 4.5svh, 2.75rem);
+  border-top: 1px solid var(--rule);
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 9ch minmax(0, 1fr);
+  align-items: start;
+  padding-block: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.group-name {
+  margin: 0;
+  padding-top: 0.45rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.group a {
+  display: grid;
+  grid-template-columns: 1.3em 14ch minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1.1ch;
+  padding: 0.3rem 0.75ch;
+  font-size: clamp(0.86rem, 1.1vw, 0.98rem);
+  text-decoration: none;
+}
+
+/* Hand-drawn icons share one pen: 24-unit grid, 1.6 stroke, round ends. */
+.icon {
+  width: 1.3em;
+  height: 1.3em;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: color 0.28s;
+}
+
+.icon .ic-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.icon .ic-heavy {
+  stroke-width: 2.3;
+}
+
+/* Commit dots are hollow: paper inside, or ink when the row is inverted. */
+.icon .ic-dot {
+  fill: var(--paper);
+}
+
+.channels a:is(:hover, :focus-visible) .icon .ic-dot {
+  fill: var(--ink);
+}
+
+/* Only the animated parts get a pivot; shapes with their own transform attribute keep theirs. */
+.icon :is(.ic-pop, .ic-shackle, .ic-bulb, .ic-eye, .ic-keyhole, .ic-l1, .ic-l2, .ic-bubble, .ic-plane) {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.icon .ic-flap {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+}
+
+.sealed .icon {
+  color: var(--cipher);
+}
+
+.sealed a:is(:hover, :focus-visible) .icon {
+  color: inherit;
+}
+
+.channel {
+  font-weight: 400;
+}
+
+.where {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 300;
+  color: var(--ink-soft);
+}
+
+.channels a:is(:hover, :focus-visible) {
+  background: var(--ink);
+  color: var(--paper);
+  outline: 2px solid var(--ink);
+  outline-offset: 0;
+}
+
+.channels a:is(:hover, :focus-visible) .where {
+  color: inherit;
+}
+
+:root[data-theme="night"] :is(.name, .role, .channel) {
+  text-shadow: 0 0 1.2rem var(--glow);
+}
+
+/* Enciphered characters. The real letter stays in the DOM; the cipher is generated content. */
+
+.ch {
+  position: relative;
+  transition: color 0.28s var(--d, 0ms);
+}
+
+.ch::before {
+  content: attr(data-c);
+  content: attr(data-c) / "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Compagnon", ui-monospace, monospace;
+  font-weight: 300;
+  font-style: italic;
+  line-height: normal;
+  color: var(--cipher);
+  text-shadow: none;
+  opacity: 0;
+  transition: opacity 0.28s var(--d, 0ms);
+  pointer-events: none;
+}
+
+.sealed .ch {
+  color: transparent;
+  text-shadow: none;
+}
+
+/* The name is proportional: each cipher letter is set in the name's own face and
+   centred over the letter it hides. */
+.name .ch::before {
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Gambarino", Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sealed .ch::before {
+  opacity: 1;
+}
+
+.sealed a:is(:hover, :focus-visible) .ch {
+  color: inherit;
+  transition-delay: 0ms;
+}
+
+.sealed a:is(:hover, :focus-visible) .ch::before {
+  opacity: 0;
+  transition-delay: 0ms;
+}
+
+/* Hidden only until the module has enciphered the text; see the inline script. */
+.motion:not([data-motion-ready]) .card,
+.motion:not([data-motion-ready]) .hub {
+  visibility: hidden;
+}
+
+.motion .pt-fills,
+.motion .pt-lines {
+  opacity: 0;
+}
+
+/* The unlock bar sits between the role and the links, where the eye lands after
+   the name. It turns into a quiet "Links unlocked" note without changing size. */
+.cue {
+  display: flex;
+  align-items: center;
+  gap: 0.9ch;
+  width: 100%;
+  max-width: 38rem;
+  margin-top: clamp(1rem, 3.5svh, 2rem);
+  padding: 0.7rem 1rem;
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  color: var(--paper);
+  background: var(--ink);
+  border: 0;
+  box-shadow: 0 0 1.2rem var(--glow);
+  cursor: pointer;
+  transition:
+    background-color 0.35s,
+    color 0.35s,
+    box-shadow 0.35s;
+}
+
+.cue-text {
+  flex: 1;
+}
+
+.cue-lock {
+  width: 1.25em;
+  height: 1.25em;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cue-shackle {
+  transition: transform 0.35s;
+}
+
+.cue-arrow {
+  display: inline-block;
+  animation: bob 1.4s ease-in-out infinite;
+  transition: opacity 0.35s;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(0.3em);
+  }
+}
+
+.cue:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.cue.is-open {
+  color: var(--ink-soft);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rule);
+  cursor: default;
+}
+
+.cue.is-open .cue-shackle {
+  transform: translate(-2.6px, -2.2px) rotate(-18deg);
+}
+
+.cue.is-open .cue-arrow {
+  opacity: 0;
+}
+
+.lamp {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink-soft);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lamp[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 0 1.2rem var(--glow);
+}
+
+.lamp:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2.5rem;
+  padding: 2.5rem 7vw 3.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.foot p {
+  margin: 0;
+}
+
+/* A sign-off in the name's serif, so it reads as a closing line, not fine print. */
+.sign-off {
+  font-family: "Gambarino", Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+}
+
+.sign-off a {
+  color: var(--ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* Portrait screens: wheel above, card below. */
+@media (max-aspect-ratio: 1/1) {
+  .stage {
+    --wx: 60vw;
+    --wy: 18.5svh;
+    --wr: min(42vw, 17.5svh);
+    align-items: start;
+  }
+
+  .card {
+    width: 100%;
+    padding: calc(var(--wy) + var(--wr) + 1rem) 1.25rem 1.5rem;
+  }
+
+  .lamp {
+    right: auto;
+    left: 1rem;
+  }
+}
+
+/* Short portrait screens (small phones, Safari with toolbars). */
+@media (max-aspect-ratio: 1/1) and (max-height: 700px) {
+  .stage {
+    --wy: 16svh;
+    --wr: min(40vw, 15svh);
+  }
+
+  .card {
+    padding-top: calc(var(--wy) + var(--wr) + 0.75rem);
+  }
+
+  .group a {
+    padding-block: 0.2rem;
+  }
+
+  .cue {
+    margin-top: 0.7rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Compact card: portrait screens and short landscape screens such as a phone on
+   its side. The name keeps to one line and each group becomes a row of chips. */
+@media (max-aspect-ratio: 1/1), (max-height: 520px) {
+  .name {
+    font-size: min(3.1rem, 100cqi / 7.1);
+  }
+
+  .role {
+    margin-top: 0.5rem;
+  }
+
+  .channels {
+    margin-top: 0.6rem;
+  }
+
+  .cue {
+    margin-top: 0.8rem;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .group {
+    grid-template-columns: 1fr;
+    padding-block: 0.3rem;
+  }
+
+  .group-name {
+    padding: 0;
+    font-size: 0.7rem;
+  }
+
+  .group ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.85rem;
+  }
+
+  .group a {
+    grid-template-columns: 1.2em auto;
+    column-gap: 0.6ch;
+    padding: 0.28rem 0.2ch;
+    font-size: 0.8rem;
+  }
+
+  .where {
+    display: none;
+  }
+}
+
+@media (max-height: 760px) and (min-aspect-ratio: 1/1) {
+  .group a {
+    padding-block: 0.16rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ch,
+  .ch::before,
+  .cue {
+    transition: none;
+  }
+}

@@ -1,0 +1,26 @@
+# Benji Peng, Ph.D.
+
+> Scientist and entrepreneur. benji.renocrypt.com is Benji Peng's contact card: public profiles, projects, and ways to get in touch.
+
+## Profiles
+
+- [GitHub](https://github.com/benjipeng): Benji Peng's open-source work
+- [LinkedIn](https://linkedin.com/in/benjiph): professional background
+- [X](https://x.com/benjipeng): posts
+
+## Projects
+
+- [Renocrypt on GitHub](https://github.com/renocrypt): Renocrypt organization repositories
+- [App Automaton on GitHub](https://github.com/appautomaton): App Automaton organization repositories
+- [appautomaton.com](https://appautomaton.com/): App Automaton project websites
+
+## Contact
+
+- [Email](mailto:benji@appcubic.com): benji@appcubic.com
+- [Discord](https://discord.com/users/787673267657244682)
+- [Telegram](https://t.me/itglue)
+
+## Related
+
+- [benji.appcubic.com](https://benji.appcubic.com/): Benji Peng's professional links page
+- [Renocrypt](https://www.renocrypt.com/)
