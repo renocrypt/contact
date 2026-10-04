@@ -32,23 +32,6 @@
   font-display: swap;
 }
 
-/* Registered so main.ts reads the wheel geometry back as resolved pixels. */
-@property --wx {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-@property --wy {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-@property --wr {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-
 /* Day: forest ink on sage paper, like a botanical key sheet. The UV toggle
    switches to night, the same sheet under a UV lamp. */
 :root {

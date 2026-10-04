@@ -33,6 +33,7 @@ const root = document.documentElement;
 const motion = root.classList.contains("motion");
 const stage = document.querySelector<HTMLElement>(".stage")!;
 const track = document.querySelector<HTMLElement>(".track")!;
+const hub = document.querySelector<HTMLElement>(".hub")!;
 
 const rings: Ring[] = START.map((start) => ({
   angle: motion ? start : 0,
@@ -410,24 +411,17 @@ function readColors() {
   };
 }
 
+// The wheel is drawn around the portrait wherever CSS placed it. Measuring the hub's
+// box keeps the two aligned in Safari, which can read --wx/--wy/--wr back at a different scale.
 function readGeometry() {
-  const cs = getComputedStyle(stage);
-  const w = stage.clientWidth;
-  const h = stage.clientHeight;
-  const portrait = w <= h;
-  const px = (name: string, fallback: number) => {
-    const value = cs.getPropertyValue(name).trim();
-    return value.endsWith("px") ? parseFloat(value) : fallback;
-  };
+  const c = canvas.getBoundingClientRect();
+  const p = hub.getBoundingClientRect();
   return {
-    w,
-    h,
-    x: px("--wx", w * (portrait ? 0.62 : 0.76)),
-    y: px("--wy", h * (portrait ? 0.24 : 0.5)),
-    r: px(
-      "--wr",
-      portrait ? Math.min(w * 0.46, h * 0.21) : Math.min(h * 0.45, w * 0.36),
-    ),
+    w: stage.clientWidth,
+    h: stage.clientHeight,
+    x: p.left - c.left + p.width / 2,
+    y: p.top - c.top + p.height / 2,
+    r: p.width / 1.1,
   };
 }
 
