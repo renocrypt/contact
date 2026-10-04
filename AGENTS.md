@@ -23,9 +23,10 @@ and 3, and each guarded line snaps to plaintext when its ring locks. The
 unlock for visitors who do not scroll, and turns into "Links unlocked" without
 changing size.
 
-- Links are grouped GitHub, Web, Social, Messages; every row is icon, name,
-  destination. Icons are hand-drawn inline SVG on one 24-unit, 1.6-stroke pen:
-  the shape says where (book = GitHub repo, window = website), the mark inside
+- Links are grouped GitHub, AI Ventures, Design Systems, Social, Messages;
+  every row is icon, name, destination. Icons are hand-drawn inline SVG on one 24-unit, 1.6-stroke pen:
+  the shape says where (book = GitHub repo, window = AI venture site, frame =
+  design system), the mark inside
   says who (lock or keyhole = Renocrypt, robot eyes = App Automaton). Each has a
   hover gesture in `src/main.ts` (`gestures()`) and they ink in when ring 3 locks.
 - Responsive check: the card must fit the viewport, with no horizontal scroll or
