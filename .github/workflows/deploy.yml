@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Pull requests run this job as a check; only main goes on to deploy.
+  # Pull requests run this job as a check. Only main goes on to deploy.
   build:
     runs-on: ubuntu-latest
     permissions:
@@ -24,7 +24,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      # prebuild fetches Gambarino from Fontshare; see scripts/fetch-fonts.mjs.
+      # prebuild fetches Gambarino from Fontshare (scripts/fetch-fonts.mjs).
       - run: npm run build
       - uses: actions/configure-pages@v6
         if: github.event_name != 'pull_request'

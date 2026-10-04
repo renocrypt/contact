@@ -17,18 +17,18 @@ person, and its own set of links.
 ## Concept
 
 "Cipher": the card is enciphered and a three-ring cipher wheel (canvas, `src/main.ts`)
-sets the key B, E, N. Ring 1 locks on load; scrolling the `.track` turns rings 2
+sets the key B, E, N. Ring 1 locks on load. Scrolling the `.track` turns rings 2
 and 3, and each guarded line snaps to plaintext when its ring locks. The
 "Scroll to unlock the links" bar between the role and the links runs the same
 unlock for visitors who do not scroll, and turns into "Links unlocked" without
 changing size.
 
-- Links are grouped GitHub, AI Ventures, Design Systems, Social, Messages;
-  every row is icon, name, destination. Icons are hand-drawn inline SVG on one 24-unit, 1.6-stroke pen:
-  the shape says where (book = GitHub repo, window = AI venture site, frame =
-  design system), the mark inside
-  says who (lock or keyhole = Renocrypt, robot eyes = App Automaton). Each has a
-  hover gesture in `src/main.ts` (`gestures()`) and they ink in when ring 3 locks.
+- Links are grouped GitHub, AI Ventures, Design Systems, Social, Messages. Every
+  row is icon, name, destination. Icons are hand-drawn inline SVG on one 24-unit,
+  1.6-stroke pen. The shape says where (book = GitHub repo, window = AI venture
+  site, frame = design system) and the mark inside says who (lock or keyhole =
+  Renocrypt, robot eyes = App Automaton). Each has a hover gesture in
+  `src/main.ts` (`gestures()`), and they ink in when ring 3 locks.
 - Responsive check: the card must fit the viewport, with no horizontal scroll or
   layout shift, at 360x640, 375x600, 390x664, 430x800, 768x1024, 844x390,
   1024x768, 1280x720, and 1920x1080.
@@ -36,11 +36,11 @@ changing size.
 - Day palette: forest-green ink on pale sage paper. Night ("UV" toggle): violet
   fluorescent ink under a UV lamp. Both live as CSS custom properties in
   `src/style.css` (`--paper`, `--ink`, `--ink-soft`, `--cipher`, `--rule`, and
-  `--pt-*` for the portrait); the canvas, icons, and portrait read only these.
+  `--pt-*` for the portrait). The canvas, icons, and portrait read only these.
   `public/benji.svg` fallbacks and `public/favicon.svg` mirror the day values.
-  The owner rejected carmine/red and, for day, the earlier lilac.
+  No red or carmine.
 - Type: no Google Fonts. The name is Gambarino (Fontshare, ITF Free Font
-  License); everything else is Compagnon (Velvetyne, OFL) in Light, Roman, and
+  License). Everything else is Compagnon (Velvetyne, OFL) in Light, Roman, and
   Light Italic, the italic carrying the ciphertext. Compagnon is subset in
   `public/fonts/` with its license; Light's vertical metrics were normalized to
   match Roman so overlays line up. Do not use Compagnon Medium: its `e` and `k`
@@ -59,9 +59,9 @@ changing size.
   in `index.html` adds when reduced motion is off. It removes the class if the
   module has not started within 2.5 seconds.
 - Honor `prefers-reduced-motion` in every new effect.
-- Ciphertext lives only in generated content (`.ch::before` per letter, `.name::before`
-  for the proportional name) via `attr(data-c) / ""`.
-  Never write cipher strings into text nodes; crawlers and screen readers must
+- Ciphertext lives only in generated content (`.ch::before` per letter) via
+  `attr(data-c) / ""`.
+  Never write cipher strings into text nodes. Crawlers and screen readers must
   always read the real letters.
 - When links or copy change, update the JSON-LD in `index.html`,
   `public/llms.txt`, and `public/sitemap.xml` together.
