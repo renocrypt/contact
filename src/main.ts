@@ -257,17 +257,6 @@ function gestures(): Record<string, (svg: SVGSVGElement) => void> {
         ease: "inOut(2)",
       });
     },
-    linkedin: (svg) => {
-      const tug = (selector: string, dir: number) =>
-        animate(svg.querySelectorAll(selector), {
-          x: [{ to: -1.8 * dir }, { to: 0 }],
-          y: [{ to: 1.8 * dir }, { to: 0 }],
-          duration: 520,
-          ease: "inOut(2)",
-        });
-      tug(".ic-l1", 1);
-      tug(".ic-l2", -1);
-    },
     x: (svg) => {
       animate(createDrawable(svg.querySelectorAll("path")), {
         draw: ["0 0", "0 1"],

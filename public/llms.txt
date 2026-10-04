@@ -4,7 +4,6 @@
 
 ## Profiles
 
-- [LinkedIn](https://linkedin.com/in/benjiph): professional background
 - [X](https://x.com/appautomaton): App Automaton posts
 
 ## Code
