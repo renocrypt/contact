@@ -9,27 +9,27 @@
       <circle class="pt-dot" cx="3" cy="3" r="1.1"/>
     </pattern>
     <style>
-      .pt-hub{fill:var(--pt-hub,#E4E0F2)}
-      .pt-skin{fill:var(--pt-skin,#FFF9F7)}
-      .pt-shade{fill:var(--pt-shade,#ECE3F2)}
-      .pt-blush{fill:var(--pt-blush,#F4B6C2);opacity:.45}
-      .pt-hair{fill:var(--pt-hair,#2B2560)}
-      .pt-hair-hi{fill:var(--pt-hair-hi,#6D67B5)}
-      .pt-cloth{fill:var(--pt-cloth,#2B2560)}
+      .pt-hub{fill:var(--pt-hub,#DBE6DA)}
+      .pt-skin{fill:var(--pt-skin,#FFFAF5)}
+      .pt-shade{fill:var(--pt-shade,#EDE5DC)}
+      .pt-blush{fill:var(--pt-blush,#F3B7AE);opacity:.45}
+      .pt-hair{fill:var(--pt-hair,#1E3A2B)}
+      .pt-hair-hi{fill:var(--pt-hair-hi,#5F8A6E)}
+      .pt-cloth{fill:var(--pt-cloth,#22402F)}
       .pt-tone{fill:url(#pt-jacquard)}
-      .pt-dot{fill:var(--pt-tone,#463F86)}
-      .pt-lapel{fill:var(--pt-lapel,#3A3478)}
+      .pt-dot{fill:var(--pt-tone,#3E6150)}
+      .pt-lapel{fill:var(--pt-lapel,#2E4E3C)}
       .pt-shirt{fill:var(--pt-shirt,#FFFFFF)}
       .pt-white{fill:var(--pt-white,#FFFFFF)}
-      .pt-iris{fill:var(--pt-iris,#6C78D8)}
-      .pt-iris-lite{fill:var(--pt-iris-lite,#B9C1F2)}
-      .pt-dark{fill:var(--pt-dark,#1A1640)}
-      .pt-mouth{fill:var(--pt-mouth,#5E3A6E)}
-      .pt-tongue{fill:var(--pt-tongue,#F4B6C2)}
-      .pt-accent{fill:var(--pt-accent,#F0A3B5)}
-      .pt-ln{fill:none;stroke:var(--pt-line,#26215C);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-      .pt-cut{fill:none;stroke:var(--pt-cut,#F2F0F7);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-      .pt-strand{fill:none;stroke:var(--pt-hair-hi,#6D67B5);stroke-width:1.3;stroke-linecap:round}
+      .pt-iris{fill:var(--pt-iris,#3F8F6E)}
+      .pt-iris-lite{fill:var(--pt-iris-lite,#A9D6BE)}
+      .pt-dark{fill:var(--pt-dark,#142A1F)}
+      .pt-mouth{fill:var(--pt-mouth,#6E3B44)}
+      .pt-tongue{fill:var(--pt-tongue,#F3B7AE)}
+      .pt-accent{fill:var(--pt-accent,#F0A99F)}
+      .pt-ln{fill:none;stroke:var(--pt-line,#1E3A2B);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+      .pt-cut{fill:none;stroke:var(--pt-cut,#EDF1EA);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+      .pt-strand{fill:none;stroke:var(--pt-hair-hi,#5F8A6E);stroke-width:1.3;stroke-linecap:round}
       .pt-w1{stroke-width:1.3}
       .pt-w15{stroke-width:1.7}
       .pt-w25{stroke-width:2.5}

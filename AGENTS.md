@@ -33,8 +33,12 @@ changing size.
   layout shift, at 360x640, 375x600, 390x664, 430x800, 768x1024, 844x390,
   1024x768, 1280x720, and 1920x1080.
 
-- Day palette: violet ink on lilac paper. Night ("UV" toggle): fluorescent ink
-  under a UV lamp. The owner rejected the earlier carmine/red palette.
+- Day palette: forest-green ink on pale sage paper. Night ("UV" toggle): violet
+  fluorescent ink under a UV lamp. Both live as CSS custom properties in
+  `src/style.css` (`--paper`, `--ink`, `--ink-soft`, `--cipher`, `--rule`, and
+  `--pt-*` for the portrait); the canvas, icons, and portrait read only these.
+  `public/benji.svg` fallbacks and `public/favicon.svg` mirror the day values.
+  The owner rejected carmine/red and, for day, the earlier lilac.
 - Type: no Google Fonts. The name is Gambarino (Fontshare, ITF Free Font
   License); everything else is Compagnon (Velvetyne, OFL) in Light, Roman, and
   Light Italic, the italic carrying the ciphertext. Compagnon is subset in

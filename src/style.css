@@ -49,35 +49,36 @@
   initial-value: 0px;
 }
 
-/* Day: violet spirit-duplicator ink on lilac paper, the same sheet the UV lamp reveals at night. */
+/* Day: forest ink on sage paper, like a botanical key sheet. The UV toggle
+   switches to night, the same sheet under a UV lamp. */
 :root {
   color-scheme: light;
-  --paper: #f2f0f7;
-  --ink: #26215c;
-  --ink-soft: #5e5a92;
-  --cipher: #918bcf;
-  --rule: #dcd8ec;
+  --paper: #edf1ea;
+  --ink: #1e3a2b;
+  --ink-soft: #4d6a5a;
+  --cipher: #7d9887;
+  --rule: #d2ddd3;
   --glow: transparent;
 
-  --pt-hub: #e4e0f2;
-  --pt-skin: #fff9f7;
-  --pt-shade: #ece3f2;
-  --pt-blush: #f4b6c2;
-  --pt-hair: #2b2560;
-  --pt-hair-hi: #6d67b5;
-  --pt-cloth: #2b2560;
-  --pt-tone: #463f86;
-  --pt-lapel: #3a3478;
+  --pt-hub: #dbe6da;
+  --pt-skin: #fffaf5;
+  --pt-shade: #ede5dc;
+  --pt-blush: #f3b7ae;
+  --pt-hair: #1e3a2b;
+  --pt-hair-hi: #5f8a6e;
+  --pt-cloth: #22402f;
+  --pt-tone: #3e6150;
+  --pt-lapel: #2e4e3c;
   --pt-shirt: #ffffff;
   --pt-white: #ffffff;
-  --pt-iris: #6c78d8;
-  --pt-iris-lite: #b9c1f2;
-  --pt-dark: #1a1640;
-  --pt-mouth: #5e3a6e;
-  --pt-tongue: #f4b6c2;
-  --pt-accent: #f0a3b5;
-  --pt-line: #26215c;
-  --pt-cut: #f2f0f7;
+  --pt-iris: #3f8f6e;
+  --pt-iris-lite: #a9d6be;
+  --pt-dark: #142a1f;
+  --pt-mouth: #6e3b44;
+  --pt-tongue: #f3b7ae;
+  --pt-accent: #f0a99f;
+  --pt-line: #1e3a2b;
+  --pt-cut: #edf1ea;
 }
 
 /* Night: a UV lamp over invisible ink. */
