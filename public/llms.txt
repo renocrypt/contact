@@ -4,15 +4,24 @@
 
 ## Profiles
 
-- [GitHub](https://github.com/benjipeng): Benji Peng's open-source work
 - [LinkedIn](https://linkedin.com/in/benjiph): professional background
 - [X](https://x.com/benjipeng): posts
 
-## Projects
+## Code
 
+- [Benji Peng on GitHub](https://github.com/benjipeng): Benji Peng's open-source work
 - [Renocrypt on GitHub](https://github.com/renocrypt): Renocrypt organization repositories
 - [App Automaton on GitHub](https://github.com/appautomaton): App Automaton organization repositories
-- [appautomaton.com](https://appautomaton.com/): App Automaton project websites
+
+## Projects
+
+- [Renocrypt](https://www.renocrypt.com/)
+- [App Automaton](https://appautomaton.com/): App Automaton project websites
+
+## Art
+
+- [Mocubix](https://mocubix.renocrypt.com/): seven ways a page can move, an exhibition of scroll-driven interaction
+- [Daykiln](https://daykiln.renocrypt.com/): six works in two series, Yaobian and Plates
 
 ## Contact
 

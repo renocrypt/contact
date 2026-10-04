@@ -284,7 +284,7 @@ a {
 }
 
 /* Only the animated parts get a pivot; shapes with their own transform attribute keep theirs. */
-.icon :is(.ic-pop, .ic-shackle, .ic-bulb, .ic-eye, .ic-keyhole, .ic-l1, .ic-l2, .ic-bubble, .ic-plane) {
+.icon :is(.ic-pop, .ic-shackle, .ic-bulb, .ic-eye, .ic-keyhole, .ic-cube, .ic-vase, .ic-l1, .ic-l2, .ic-bubble, .ic-plane) {
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -587,9 +587,11 @@ a {
     font-size: 0.85rem;
   }
 
+  /* Same ledger as the wide layout: group name in the margin, chips beside it. */
   .group {
-    grid-template-columns: 1fr;
-    padding-block: 0.3rem;
+    grid-template-columns: 8.5ch minmax(0, 1fr);
+    align-items: baseline;
+    padding-block: 0.25rem;
   }
 
   .group-name {

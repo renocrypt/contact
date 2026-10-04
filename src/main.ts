@@ -241,6 +241,22 @@ function gestures(): Record<string, (svg: SVGSVGElement) => void> {
       });
     },
     "web-automaton": (svg) => blink(svg),
+    "art-mocubix": (svg) => {
+      // The cube has threefold symmetry, so a 120° turn lands back on itself.
+      animate(svg.querySelectorAll(".ic-cube"), {
+        rotate: [0, 120],
+        duration: 700,
+        ease: "inOut(3)",
+      });
+    },
+    "art-daykiln": (svg) => {
+      // Squash and stretch, as if the vase were turning on a wheel.
+      animate(svg.querySelectorAll(".ic-vase"), {
+        scaleX: [{ to: 0.72 }, { to: 1.08 }, { to: 1 }],
+        duration: 760,
+        ease: "inOut(2)",
+      });
+    },
     linkedin: (svg) => {
       const tug = (selector: string, dir: number) =>
         animate(svg.querySelectorAll(selector), {
